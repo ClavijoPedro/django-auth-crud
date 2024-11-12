@@ -1,0 +1,60 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+
+<main class="container">
+    
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+
+            <!-- con action le digo que al hacer submit envie los datos a la ruta signup, si no pongo action envia a la misma ruta donde esta la vista y es lo mismo  -->
+            <form method="POST" class="card card-body ">
+                <h3 class="text-center pb-2 pt-2">Registrarse</h3>
+                
+                {{error}}
+        
+                <!-- con csrf_token es como un id que verifica que el formuilario fue generado por mi servidor y no es copia falsa (si no lo pongo lanza error) -->
+                {% csrf_token %}
+        
+                <!-- elimine el form de django para poder usar mis propios inputs y estilizarlos con bootstrap. los de django no se pueden estilizar  -->
+                <div class="mb-3">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" name="username" id= "username" class="form-control" placeholder="Escribe tu nombre de usuario">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password1">Contraseña:</label>
+                    <input type="password" name="password1" id= "password1" class="form-control" placeholder="Escribe tu contraseña">
+                </div>
+                <div class="mb-3">
+                    <label for="password2">Confirmar contraseña:</label>
+                    <input type="password" name="password2" id= "password2" class="form-control" placeholder="Confirmar contraseña">
+                </div>
+        
+                <button class="btn btn-primary">Registrarse</button>
+        
+            </form>
+
+        </div>
+    </div>
+
+</main>
+
+
+<!-- sin bootstrap
+<h1>Signup</h1>
+
+{{error}}
+
+-- con action le digo que al hacer submit envie los datos a la ruta signup, si no pongo action envia a la misma ruta donde esta la vista y es lo mismo  --
+<form method="POST">
+    -- con csrf_token es como un id que verifica que el formuilario fue generado por mi servidor y no es copia falsa (si no lo pongo lanza error) --
+    {% csrf_token %}
+    -- traigo los inputs que pase con la variable form - .as_p mete dentro de una etiqueta <p> los inputs  --
+    {{form.as_p}}
+
+    <button>Signup</button>
+
+</form> -->
+
+{% endblock %}

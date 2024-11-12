@@ -1,0 +1,41 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <h1 class="text-center py-5 display-6">Tareas pendientes</h1>
+            <!-- se muestran solo las tareas pendientes ya que en la view def tasks filtre por tarea no terminada tambien -->
+        
+            <ul class="list-group">
+                {% for task in tasks %}
+                
+                <a class="list-group-item" href="{% url 'task_detail' task.id %}">
+                    <header class="d-flex justify-content-between">
+                        {% if task.important %}
+                        <h1 class="fw-bold text-success fs-3">{{task.title}}</h1>
+                        {% else %}
+                        <h1 class="fw-bold fs-3">{{task.title}}</h1>
+                        {% endif %}
+                        <p>{{task.user.username}}</p>
+                    </header>
+        
+                
+                    
+                    <p>{{task.description}}</p>
+                    <!-- muestro fecha de completado con filtro de formato para la fecha con | aplico fitros -->
+                    <p>{{task.datecompleted|date:'M j Y'}}</p>
+                </a>
+
+                {% endfor %}
+            
+            </ul>
+
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

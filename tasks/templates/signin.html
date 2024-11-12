@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+
+
+
+<main class="container">
+    
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+
+            <!-- con action le digo que al hacer submit envie los datos a la ruta signup, si no pongo action envia a la misma ruta donde esta la vista y es lo mismo  -->
+            <form method="POST" class="card card-body ">
+                <h3 class="text-center pb-2 pt-2">Inicio de Sesión</h3>
+                
+                {{error}}
+        
+                <!-- con csrf_token es como un id que verifica que el formuilario fue generado por mi servidor y no es copia falsa (si no lo pongo lanza error) -->
+                {% csrf_token %}
+        
+                <!-- elimine el form de django para poder usar mis propios inputs y estilizarlos con bootstrap. los de django no se pueden estilizar  -->
+                <div class="mb-3">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" name="username" id= "username" class="form-control" placeholder="Escribe tu nombre de usuario">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Escribe tu contraseña">
+                </div>
+        
+                <button class="btn btn-primary">Iniciar Sesión</button>
+        
+            </form>
+
+        </div>
+    </div>
+
+</main>
+
+<!-- sin bootstrap
+<h1>Signin</h1>
+{{error}}
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button>SignIn</button>
+
+</form> -->
+
+
+{% endblock %}

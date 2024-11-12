@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+
+<main class="container py-5">
+  <section class="card card-body p-5 col-10 m-auto">
+    <h1 class="display-3 text-center fw-bold mb-4">Django Tasks</h1>
+    <p>
+      Aplicación para organizar tareas de manera sencilla y efectiva. Con una
+      interfaz intuitiva te permite gestionar tus tareas diarias, proyectos a
+      largo plazo y recordatorios de forma rápida y eficiente.
+    </p>
+
+    <div class="d-flex gap-3 my-4">
+
+      <div class="card card-body">
+        <p class="fs-5 fw-bold text-center">Organiza tus tareas</p>
+        <p>Crea, edita y marca tus tareas con facilidad.</p>
+      </div>
+      <div class="card card-body ">
+        <p class="fs-5 fw-bold text-center">En la nube</p>
+        <p>Accede a tus tareas desde cualquier dispositivo.</p>
+      </div>
+      <div class="card card-body ">
+        <p class="fs-5 fw-bold text-center">Interfaz intuitiva</p>
+        <p>Simple y fácil de usar, ideal para todos los niveles.</p>
+      </div>
+  
+    </div>
+
+    <div class="text-center my-2">
+      <a class="btn btn-secondary" href="/signin"> Iniciar Sesión </a>
+      <a class="btn btn-dark" href="/signup"> Registrarse </a>
+    </div>
+
+  </section>
+</main>
+
+{% endblock %}
