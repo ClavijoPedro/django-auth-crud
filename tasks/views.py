@@ -65,7 +65,8 @@ def tasks_completed(request):
     tasks = Task.objects.filter(user=request.user, datecompleted__isnull=False).order_by('-datecompleted') 
     # uso el mismo template para renderizar la tareas completadas pero con otra url
     return render(request,'tasks.html', {
-        'tasks':tasks
+        'tasks':tasks,
+        'tasks_completed':True
     })
 
 @login_required 
@@ -76,7 +77,7 @@ def create_task(request):
         })
     else:
         try:
-            # Recibimos los datos del formulario (request.POST) y Creos una instancia del formulario (TaskForm) con esos datos.
+            # Recibimos los datos del formulario (request.POST) y Creo una instancia del formulario (TaskForm) con esos datos.(la instancia de taskForm ya reconoce los campos del request.post y los asigna alformulario)
             form = TaskForm(request.POST)
             # Guardo el objeto de task en una instancia,pero sin guardarlo en la db aún para poder seguir manipulandolo(usando commit=False).
             new_task = form.save(commit=False) 

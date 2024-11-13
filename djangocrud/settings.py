@@ -94,8 +94,20 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
 # }
+
+# config para postgres local sin render.com
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'djangocrud',
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgres',
+#         'HOST': 'localhost',  # Replace with your PostgreSQL server's address if necessary
+#         'PORT': '5434',       # Leave empty to use the default PostgreSQL port (usually 5432)
+#     }
+# }
     
-# para depoloy en render con postgres    
+# para depoloy en render con postgres  detecta si hay url de produccion sino configura postgres local x default 
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.

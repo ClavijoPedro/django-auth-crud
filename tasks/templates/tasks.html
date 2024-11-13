@@ -5,10 +5,13 @@
 <main class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-
+            {% if tasks_completed %}
+            <h1 class="text-center py-5 display-6">Tareas completadas</h1>
+            {% else %}
             <h1 class="text-center py-5 display-6">Tareas pendientes</h1>
             <!-- se muestran solo las tareas pendientes ya que en la view def tasks filtre por tarea no terminada tambien -->
-        
+            {% endif%}
+            
             <ul class="list-group">
                 {% for task in tasks %}
                 
@@ -28,7 +31,8 @@
                     <!-- muestro fecha de completado con filtro de formato para la fecha con | aplico fitros -->
                     <p>{{task.datecompleted|date:'M j Y'}}</p>
                 </a>
-
+                {% empty %}
+                <h3 class="text-center">No hay tareas</h3>
                 {% endfor %}
             
             </ul>

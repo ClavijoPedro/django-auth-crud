@@ -16,7 +16,7 @@ class TaskForm(ModelForm):
         
 
 # NOTA: 
-# diferencia entre usar Form y ModelForm
-# Form      ---> no esta vinculado a ningun modelo de base de datos.  Los campos del formulario se definen explícitamente en el formulario y no están relacionados con ninguna tabla en la base de datos
+# diferencia entre usar Form y ModelForm como parametro en la clase
+# forms.Form      ---> no esta vinculado a ningun modelo de base de datos.  Los campos del formulario se definen explícitamente en el formulario y no están relacionados con ninguna tabla en la base de datos
 # ModelForm ---> esta vinculado a un modelo de base de datos(los que cree en models.py). le paso el modelo Task por ej y me crea una instancia de el. le puedo decir que campos del modelo mostrar y luego me permite editarlos con sus metodos 
 # ModelForm es mas seguro y aplica validaciones adicionales de django
