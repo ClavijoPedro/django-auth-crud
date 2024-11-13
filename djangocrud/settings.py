@@ -89,18 +89,20 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+# }
+    
+# para depoloy en render con postgres    
 DATABASES = {
-    'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'default': dj_database_url.config(
-            default='postgresql://postgres:postgres@localhost/postgres', # formato estandar de url para db --> postgresql://<usuario>:<contraseña>@<host>:<puerto>/<nombre_de_base_de_datos>
-            conn_max_age = 600 # limite de tiempo de conexion - 600 = 10min
-        )
-        
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://postgres:postgres@localhost/postgres', # formato estandar de url para db --> postgresql://<usuario>:<contraseña>@<host>:<puerto>/<nombre_de_base_de_datos>
+        conn_max_age=600 # limite de tiempo de conexion - 600 = 10min
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
